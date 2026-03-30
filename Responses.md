@@ -149,13 +149,13 @@ Les causes les plus probables sont :
 
 L'assistant permet aux gestionnaires de magasins d'explorer des scénarios de ventes en langage naturel. Le gestionnaire pose une question ou soumet un scénario, et l'assistant appelle le modèle de prévision en arrière-plan pour générer une réponse concrète et actionnable.
 
-L'architecture peut-être un chat où le gestionnarie post un question puis: 
+L'architecture proposée est un chat où le gestionnaire pose une question, puis :
 
-1. LLM  - interprète la question, formate la réponse. On peut utiliser un API où quelque chose locale avec Olama.
-2. Le LL a accees a l'uutil de prévision (Random Forest)
-    — reçoit: sous-catégorie, mois, lag_1, lag_12, discount
-    — retourne: ventes prévues
-3. LLM traduit le résultat en recommandation actionnable
+1. **LLM** — interprète la question et formate la réponse. On peut utiliser une API externe (ex: OpenAI, Anthropic) ou un modèle local avec Ollama pour les clients soucieux de la confidentialité des données.
+2. **Le LLM a accès à un outil de prévision (Random Forest)**
+    - Reçoit : sous-catégorie, mois, `sales_lag_1`, `sales_lag_12`, discount
+    - Retourne : ventes prévues en dollars
+3. **Le LLM traduit le résultat en recommandation actionnable** à destination du gestionnaire
 
 Exemple de flux concret:
 Le gestionnaire demande: "Si j'augmente mon rabais sur les chaises à 20% en novembre, quelles sont mes ventes prévues?"
