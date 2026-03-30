@@ -108,15 +108,21 @@ Je suis convaincu parce-que:
 **Avantage**
 
 1.**Robuste aux outliers** — le Random Forest est peu sensible aux valeurs aberrantes, ce qui est important dans un jeu de données avec des transactions très variables
+
 2.**Pas d'hypothèse de linéarité** — contrairement à la régression linéaire, il capture les interactions non-linéaires entre features sans configuration supplémentaire
+
 3.**Facile à mettre à jour** — chaque mois, on ajoute les nouvelles données, on recalcule les lags, et on réentraîne
+
 4.**Interprétable via feature importance** — on peut expliquer au client quels signaux le modèle utilise
 
 **Inconvénients**
 
 1.**Extrapolation limitée** — le Random Forest ne peut pas prédire des valeurs au-delà de la plage observée en entraînement. Si les ventes explosent au-delà des maximums historiques, le modèle sous-estimera
+
 2.**Pas de modélisation explicite de la tendance** — un modèle dédié comme Prophet modéliserait explicitement la tendance long terme et la saisonnalité, ce qui pourrait être plus robuste avec plus de données
+
 3.**Données limitées** — avec seulement 4 ans d'historique et une seule catégorie de produits, le modèle manque de signal pour généraliser pleinement
+
 4.**Nécessite un réentraînement régulier** — sans pipeline de réentraînement automatisé, les performances se dégraderont avec le temps à mesure que les patterns évoluent
 
 # Partie 4 - Problèmes suite à la mise en production
