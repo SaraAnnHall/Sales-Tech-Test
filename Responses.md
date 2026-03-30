@@ -2,7 +2,7 @@
 #### Sara Hall
 ##### 31 Mars, 2026
 
-Code used to generate thee responses is in a notebook located [here](notebooks.test-technique-notebook.ipynb). If this was a full project rather than a proof of concept for a test, I would convert the main bits of code into a py file and only use the notebook for demo purposes, but in the interest of time I'm leaving it as is. 
+Code used to generate thee responses is in a notebook located [here](notebooks/test-technique-notebook.ipynb). If this was a full project rather than a proof of concept for a test, I would convert the main bits of code into a py file and only use the notebook for demo purposes, but in the interest of time I'm leaving it as is. I would also put more effort into making the visuals look nice if I were presenting to a client.
 
 # Partie 1 - Préparation des données
 
@@ -53,4 +53,32 @@ Connaître les dates et l'ampleur des promotions passées permettrait de modéli
 Actuellement, 8 produits distincts partagent le même `product_id`, ce qui complique le suivi des stocks et introduit une ambiguïté dans les données. S'assurer que chaque produit correspond à un identifiant unique améliorerait la fiabilité du catalogue produit et la traçabilité des ventes.
 
 # Partie 2 : Présentation des résultats au client
+
+## Q2.1 - Les résultats de ma solution ML
+
+| | Baseline naïve (lag 12) | Random Forest | Amélioration |
+|---|---|---|---|
+| MAE | $1,942 | $1,811 | **-$131/mois** |
+| RMSE | $2,753 | $2,479 | **-$274** |
+| MAPE | 67.5% | 68.1% | — |
+
+**Interprétation pour le client**
+Le modèle Random Forest prédit les ventes mensuelles par sous-catégorie avec une erreur moyenne de 1811$ par mois. Pour mettre ce chiffre en contexte, les ventes mensuelles moyennes varient entre 1852$ (Furnishings) et 6660$ (Chairs) — une erreur de 1811$ représente donc environ 27% des ventes moyennes de Chairs, ce qui est raisonnable pour un premier modèle sur 4 ans de données.
+Plus important, le modèle surpasse la baseline naïve — c'est-à-dire simplement utiliser les ventes de l'année précédente — sur les métriques MAE et RMSE. Cela démontre que le modèle capte des signaux réels au-delà de la simple saisonnalité.
+Valeur ajoutée pour l'entreprise. ![](assets/predictions.png)
+
+En plus, le modéle nous permets de voir les features qui sont plus importants pour preduire les ventes futures. Par example, on peut voir que le chose le plus important sont les vents de l'anée avant. On peut voir aussi que le monthly discount has an effect as well, which is something that store managers can control. ![](assets/feature_importance.png)
+
+Ce modèle est un point de départ. Avec davantage de données historiques et l'ajout des informations promotionnelles recommandées, les performances s'amélioreraient significativement. La valeur immédiate est de démontrer la faisabilité de l'approche et d'établir une baseline solide pour les itérations futures.
+
+## Q2.2 - Comments les gestionnaires vont l'utiliser:
+
+**Concrètement, ce modèle permet aux gestionnaires de magasins de :**
+
+1. Anticiper la demande par sous-catégorie un mois à l'avance, permettant une meilleure gestion des stocks
+2. Réduire les ruptures de stock sur les sous-catégories à forte valeur comme Chairs et Tables
+3. Quantifier l'impact des rabais sur les ventes futures — le modèle confirme que le rabais moyen est un prédicteur significatif
+
+
+
 
