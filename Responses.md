@@ -159,10 +159,10 @@ L'architecture proposée est un chat où le gestionnaire pose une question, puis
 Exemple de flux concret:
 Le gestionnaire demande: "Si j'augmente mon rabais sur les chaises à 20% en novembre, quelles sont mes ventes prévues?"
 
-1. Le LLM extrait les paramètres — sous-catégorie: Chairs, mois: novembre, discount: 0.20
+1. Le LLM extrait les paramètres: sous-catégorie: Chairs, mois: novembre, discount: 0.20
 2. Il appelle le modèle RF avec ces paramètres
-3. Le modèle retourne une prévision — ex: $8200
-4. Le LLM compare avec le scénario sans rabais — ex: $7100
+3. Le modèle retourne une prévision, ex: $8200
+4. Le LLM compare avec le scénario sans rabais, ex: $7100
 5. Il répond: "Un rabais de 20% sur les chaises en novembre devrait générer environ 8200$ de ventes, soit 1100$ de plus que sans rabais. Attention : à ce niveau de rabais, la marge sera réduite."
 
 ## Q5.2 - Un exemple d'instruction système
