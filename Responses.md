@@ -102,9 +102,9 @@ Je suis convaincu parce-que:
 3. Aucune fuite de données, toutes les features sont disponibles au moment de la prédiction
 4. L'approche est validée sur une année complète de données non vues (2017)
 
-## Q3.2 - Les avantage et les inconvénient
+## Q3.2 - Les avantages et les inconvénient
 
-**Avantage**
+**Avantages**
 
 1.**Robuste aux outliers**: le Random Forest est peu sensible aux valeurs aberrantes, ce qui est important dans un jeu de données avec des transactions très variables
 
